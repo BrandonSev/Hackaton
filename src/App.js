@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header/Header";
@@ -15,12 +15,16 @@ function App() {
     setKaraokeSongId,
     setMightLikeArtistNames,
     toTitleCase,
+    setMusicGenre,
+    musicMatchApiKey,
   } = useContext(ArtistContext);
 
   // youtube api Peter key
   // const apiKeyYoutube = "AIzaSyCwb6wc0KuGSinjA0Ieo7ESJZzKknYpHmc";
   const apiKeyYoutube = "AIzaSyBpcSCzGebZDcHH-JG4-lIre0V7MMSWWuE";
 
+  const [artistId, setArtistId] = useState("");
+  
   const getOfficialSongId = async () => {
     await axios
       .get(
@@ -75,6 +79,39 @@ function App() {
         setMightLikeArtistNames(res.data.Similar.Results);
       });
   };
+
+  // APi call that render the music genre string
+
+  useEffect(() => {
+    if (artistName)
+      axios
+        .get(
+          `https://magical-it-works.jsrover.wilders.dev/https://api.musixmatch.com/ws/1.1/artist.search?q_artist=${artistName}&page_size=1&apikey=${musicMatchApiKey}`
+        )
+        .then(async (res2) => {
+          setArtistId(
+            res2.data.message.body.artist_list[0]
+              ? res2.data.message.body.artist_list[0].artist.artist_id
+              : ""
+          );
+        });
+  }, [artistName]);
+
+  useEffect(() => {
+    if (artistId)
+      axios
+        .get(
+          `https://magical-it-works.jsrover.wilders.dev/https://api.musixmatch.com/ws/1.1/artist.albums.get?artist_id=${artistId}&s_release_date=asc&g_album_name=1&apikey=${musicMatchApiKey}`
+        )
+        .then(async (res3) => {
+          console.log("3eme requete axios", res3.data);
+          setMusicGenre(
+            res3.data.message.body.album_list[1]
+              ? res3.data.message.body.album_list[1].album.primary_genres.music_genre_list[0].music_genre.music_genre_name
+              : ""
+          );
+        });
+  }, [artistId]);
 
   useEffect(() => {
     // function that send request to APIs
