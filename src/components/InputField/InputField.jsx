@@ -13,7 +13,7 @@ function InputField() {
     <>
       <div class="form-group text-center">
         <label for="exampleInputEmail1" className="font-weight-medium">
-          Fill with the Singer
+          Enter Singer
         </label>
         <input
           type="singer"
@@ -25,7 +25,7 @@ function InputField() {
       </div>
       <div class="form-group text-center">
         <label for="exampleInputEmail1" className="font-weight-medium">
-          Fill with the Song
+          Enter Song
         </label>
         <input
           type="singer"

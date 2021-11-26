@@ -6,7 +6,7 @@ function Hero() {
       <h1 className="text-center mt-5 text-bold">
         <span className="text-primary font-weight-bold">Welcome, </span>to{" "}
         <br />
-        Let's the music play
+        Let the music play
       </h1>
     </div>
   );

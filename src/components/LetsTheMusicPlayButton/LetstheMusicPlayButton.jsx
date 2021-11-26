@@ -27,7 +27,7 @@ const LetTheMusicPlayButton = () => {
       onClick={handleClick}
       className="btn btn-primary btn-lg"
     >
-      Let's the music play
+      Let the music play
     </button>
   );
 };
