@@ -3,6 +3,7 @@ import React, { useContext, useState } from "react";
 import ReactPlayer from "react-player";
 import ArtistContext from "../../context/ArtistContext";
 import Button from "../Button/Button";
+import "./YoutubePlayer.css";
 
 const YoutubePlayer = () => {
   const { officialSongId, karaokeSongId } = useContext(ArtistContext);
@@ -21,16 +22,34 @@ const YoutubePlayer = () => {
 
   return (
     <div className="youtube-widget-container">
-      <div className="d-flex justify-content-around mb-4">
-        <Button value="Let's LISTEN" onClick={handleSetHideKaraoke}></Button>
+      <div className="youtube-widget-title-container">
+        <Button
+          value="Let's LISTEN"
+          handleClick={handleSetHideKaraoke}
+          className={`${
+            hideOfficial
+              ? "youtube-widget-title-sing-it hide"
+              : "youtube-widget-title-sing-it"
+          }`}
+        ></Button>
         <Button
           value="Let's Sing IT"
-          className="btn btn-primary"
-          onClick={handleSetHideOfficial}
+          className={`${
+            hideKaraoke
+              ? "youtube-widget-title-sing-it hide"
+              : "youtube-widget-title-sing-it"
+          }`}
+          handleClick={handleSetHideOfficial}
         ></Button>
       </div>
-      <div className="d-flex justify-content-between bg-secondary p-4">
-        <div style={{ width: "47%" }}>
+      <div className="youtube-video-container mt-3">
+        <div
+          className={
+            hideOfficial
+              ? "youtube-widget-listen-it hide"
+              : `youtube-widget-listen-it ${hideKaraoke ? "spread" : ""}`
+          }
+        >
           <ReactPlayer
             url={songOfficial}
             controls
@@ -40,7 +59,6 @@ const YoutubePlayer = () => {
           />
         </div>
         <div
-          style={{ width: "47%" }}
           className={
             hideKaraoke
               ? "youtube-widget-sing-it hide"
