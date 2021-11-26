@@ -27,11 +27,15 @@ function Step2() {
             <div className="text-center">
               <YoutubePlayer />
             </div>
-            <Lyrics />
             <div className="d-flex  justify-content-between mt-4">
               <Button value="Back" handleClick={handleClick} />
-              <Button value="Also Like" handleClick={() => setStep(step + 1)} />
+              <Button
+                value="Also Like"
+                like={true}
+                handleClick={() => setStep(step + 1)}
+              />
             </div>
+            <Lyrics />
           </div>
         )}
       </div>

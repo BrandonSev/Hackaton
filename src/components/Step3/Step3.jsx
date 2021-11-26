@@ -15,6 +15,9 @@ const Step3 = () => {
           <h2 className="you-might-like-title text-center">
             You might also LIKE
           </h2>
+          <div className="d-flex  justify-content-between mt-4">
+            <Button value="Back" handleClick={() => setStep(step - 1)} />
+          </div>
         </div>
         {mightLikeArtistNames.map((mightLikeArtistName, i) => (
           <>
@@ -24,9 +27,6 @@ const Step3 = () => {
             />
           </>
         ))}
-      </div>
-      <div className="d-flex  justify-content-between mt-4">
-        <Button value="Back" handleClick={() => setStep(step - 1)} />
       </div>
     </div>
   );
