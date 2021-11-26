@@ -1,9 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import ArtistContext from "../../context/ArtistContext";
 import axios from "axios";
+import Button from "../Button/Button";
 
 const Step4 = () => {
-  const { artistId, musicMatchApiKey } = useContext(ArtistContext);
+  const { artistId, musicMatchApiKey, step, setStep } =
+    useContext(ArtistContext);
   const [albums, setAlbums] = useState([]);
 
   useEffect(() => {
@@ -17,18 +19,23 @@ const Step4 = () => {
             res3.data.message.body.album_list[0]
               ? res3.data.message.body.album_list
               : ""
-          );console.log(albums)
+          );
         });
   }, [artistId]);
 
   return (
     <div>
-      {albums.map((album, i)=>(
+      <div className="d-flex  justify-content-between mt-4">
+        <Button value="Back" handleClick={() => setStep(step - 2)} />
+      </div>
+      {albums.map((album, i) => (
         <figure>
-        <figcaption>Artist:{album.album.artist_name} Name:{album.album.album_name} Release Date:{album.album.album_release_date}</figcaption>
+          <figcaption>
+            Artist:{album.album.artist_name} Name:{album.album.album_name}{" "}
+            Release Date:{album.album.album_release_date}
+          </figcaption>
         </figure>
-        ))}
-          
+      ))}
     </div>
   );
 };
