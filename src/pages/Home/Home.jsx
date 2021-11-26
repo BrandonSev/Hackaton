@@ -4,6 +4,7 @@ import InputField from "../../components/InputField/InputField";
 import LetTheMusicPlayButton from "../../components/LetsTheMusicPlayButton/LetstheMusicPlayButton";
 import Step2 from "../../components/Step2/Step2";
 import Step3 from "../../components/Step3/Step3";
+import Step4 from "../../components/Step4/Step4";
 import ArtistContext from "../../context/ArtistContext";
 
 function Home() {
@@ -17,7 +18,7 @@ function Home() {
             display: "flex",
             position: "relative",
             transition: "left .3s ease",
-            width: "300%",
+            width: "400%",
             left: step * -100 + "%",
           }}
         >
@@ -32,6 +33,7 @@ function Home() {
           </div>
           <div style={{ width: "100%" }}>{step === 1 && <Step2 />}</div>
           <div style={{ width: "100%" }}>{step === 2 && <Step3 />}</div>
+          <div style={{ width: "100%" }}>{step === 3 && <Step4 />}</div>
         </div>
       </div>
     </>

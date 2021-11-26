@@ -17,13 +17,13 @@ function App() {
     toTitleCase,
     setMusicGenre,
     musicMatchApiKey,
+    setArtistId,
+    artistId
   } = useContext(ArtistContext);
 
   // youtube api Peter key
   // const apiKeyYoutube = "AIzaSyCwb6wc0KuGSinjA0Ieo7ESJZzKknYpHmc";
   const apiKeyYoutube = "AIzaSyBpcSCzGebZDcHH-JG4-lIre0V7MMSWWuE";
-
-  const [artistId, setArtistId] = useState("");
   
   const getOfficialSongId = async () => {
     await axios

@@ -30,6 +30,11 @@ function Step2() {
             <div className="d-flex  justify-content-between mt-4">
               <Button value="Back" handleClick={handleClick} />
               <Button
+                value="Give me more"
+                like={true}
+                handleClick={() => setStep(step + 2)}
+              />
+              <Button
                 value="Also Like"
                 like={true}
                 handleClick={() => setStep(step + 1)}
