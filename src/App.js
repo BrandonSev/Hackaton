@@ -106,8 +106,8 @@ function App() {
         .then(async (res3) => {
           console.log("3eme requete axios", res3.data);
           setMusicGenre(
-            res3.data.message.body.album_list[0]
-              ? res3.data.message.body.album_list[0].album.primary_genres.music_genre_list[0].music_genre.music_genre_name
+            res3.data.message.body.album_list[1]
+              ? res3.data.message.body.album_list[1].album.primary_genres.music_genre_list[0].music_genre.music_genre_name
               : ""
           );
         });
