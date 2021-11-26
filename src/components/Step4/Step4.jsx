@@ -12,7 +12,7 @@ const Step4 = () => {
     if (artistId)
       axios
         .get(
-          `https://magical-it-works.jsrover.wilders.dev/https://api.musixmatch.com/ws/1.1/artist.albums.get?artist_id=${artistId}&s_release_date=asc&g_album_name=1&apikey=${musicMatchApiKey}`
+          `https://magical-it-works.jsrover.wilders.dev/https://api.musixmatch.com/ws/1.1/artist.albums.get?artist_id=${artistId}&s_release_date=asc&g_album_name=1&page_size=100&apikey=${musicMatchApiKey}`
         )
         .then(async (res3) => {
           setAlbums(
