@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 import ArtistContext from "../../context/ArtistContext";
 
 const YouMightLikeWidget = ({ mightLikeArtistName }) => {
-  const { setArtistName, setSongTitle } = useContext(ArtistContext);
-  const musicMatchApiKey = "ea098be9293d63cd8b14eae183a5d84e";
+  const { setArtistName, setSongTitle, musicMatchApiKey } = useContext(ArtistContext);
+  // const musicMatchApiKey = "ea098be9293d63cd8b14eae183a5d84e";
   // const musicMatchApiKey = ""; // apipeter ="a0476d8d1a95cb24fc8e9944ebbd4180"
   const [thumbnailSource, setThumbnailSource] = useState("");
   const [newArtistId, setNewArtistId] = useState("");
