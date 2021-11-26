@@ -1,19 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import ArtistContext from "../../context/ArtistContext";
 
-const getBackgroundImage = () => {
+const BackgroundImage = () => {
+  const { musicGenre } = useContext(ArtistContext);
+  const [background, setBackground] = useState("");
 
-    const{ musicGenre } = useContext(ArtistContext);
-    const background =""; 
+  if (musicGenre.includes('Pop') || musicGenre.includes('Australia')) {
+    setBackground("/image/Rock.jpg")
+  }
+  return(
+      <div>
+          <img src={background} alt="" />
+      </div>
+  )
+};
 
-    if (musicGenre.contains("rock")) {
-        console.log("plop")}
-    return(
-        <div>
-            <img src={background} alt="background" />
-        </div>
-    )
-    }
-
-
-export default getBackgroundImage;
+export default BackgroundImage;

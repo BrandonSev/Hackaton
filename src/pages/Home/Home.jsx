@@ -5,11 +5,13 @@ import LetTheMusicPlayButton from "../../components/LetsTheMusicPlayButton/Letst
 import Step2 from "../../components/Step2/Step2";
 import Step3 from "../../components/Step3/Step3";
 import ArtistContext from "../../context/ArtistContext";
+import BackgroundImage from "../../components/Background/Background"
 
 function Home() {
   const { step, setStep } = useContext(ArtistContext);
   return (
     <>
+    <BackgroundImage />
       <div style={{ position: "relative" }}></div>
       <div style={{ overflow: "hidden" }}>
         <div
