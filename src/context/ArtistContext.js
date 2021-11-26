@@ -15,7 +15,7 @@ export const ArtistContextProvider = ({ children }) => {
   const [karaokeSongId, setKaraokeSongId] = useState("");
   const [mightLikeArtistNames, setMightLikeArtistNames] = useState([]);
   const [musicGenre, setMusicGenre] = useState("")
-  
+  const [artistId, setArtistId] = useState("");
   const musicMatchApiKey = "ea098be9293d63cd8b14eae183a5d84e";
 
   const setInitialValue = () => {
@@ -59,7 +59,9 @@ export const ArtistContextProvider = ({ children }) => {
         setStep,
         musicGenre,
         setMusicGenre,
-        musicMatchApiKey
+        musicMatchApiKey,
+        setArtistId,
+        artistId
       }}
     >
       {children}
