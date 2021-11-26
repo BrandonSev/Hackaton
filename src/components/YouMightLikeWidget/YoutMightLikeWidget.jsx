@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 import ArtistContext from "../../context/ArtistContext";
 
 const YouMightLikeWidget = ({ mightLikeArtistName }) => {
-  const { setArtistName, setSongTitle } = useContext(ArtistContext);
+  const { setArtistName, setSongTitle, step, setStep } =
+    useContext(ArtistContext);
   const musicMatchApiKey = "ea098be9293d63cd8b14eae183a5d84e";
   // const musicMatchApiKey = ""; // apipeter ="a0476d8d1a95cb24fc8e9944ebbd4180"
   const [thumbnailSource, setThumbnailSource] = useState("");
@@ -82,21 +83,27 @@ const YouMightLikeWidget = ({ mightLikeArtistName }) => {
   const newSearch = () => {
     setArtistName(mightLikeArtistName);
     setSongTitle(newTrack);
+    setStep(step - 1);
   };
 
   return (
     <>
-      <Link
-        to="/result"
-        className="d-flex justify-content-between w-100 mt-4"
+      <div
+        className="d-flex justify-content-between w-100 mt-4 h6"
         onClick={newSearch}
       >
-        <div className="d-flex justify-content-between border w-100 align-items-center">
-          <h3 className="you-might-like-widget-title-text pl-4">
-            Track: {newTrack}
+        <div
+          className="d-flex justify-content-between border w-100 align-items-center"
+          style={{ fontSize: "8px !important" }}
+        >
+          <h6
+            className="you-might-like-widget-title-text pl-3 pl-md-4"
+            style={{ maxWidth: "60%" }}
+          >
+            Track: <span className="text-primary">{newTrack}</span>
             <br />
-            Artist: {mightLikeArtistName}
-          </h3>
+            Artist: <span className="text-primary">{mightLikeArtistName}</span>
+          </h6>
           <div className="you-might-like-widget-photo-container">
             <img
               src={thumbnailSource}
@@ -106,7 +113,7 @@ const YouMightLikeWidget = ({ mightLikeArtistName }) => {
             />
           </div>
         </div>
-      </Link>
+      </div>
     </>
   );
 };
