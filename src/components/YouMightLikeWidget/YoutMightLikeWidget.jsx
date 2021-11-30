@@ -100,9 +100,9 @@ const YouMightLikeWidget = ({ mightLikeArtistName }) => {
             className="you-might-like-widget-title-text pl-3 pl-md-4"
             style={{ maxWidth: "60%" }}
           >
-            Track: <span className="text-primary">{newTrack}</span>
+            Track: <span className="text-white">{newTrack}</span>
             <br />
-            Artist: <span className="text-primary">{mightLikeArtistName}</span>
+            Artist: <span className="text-white">{mightLikeArtistName}</span>
           </h6>
           <div className="you-might-like-widget-photo-container">
             <img

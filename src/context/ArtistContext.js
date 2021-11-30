@@ -4,6 +4,7 @@ const ArtistContext = createContext();
 
 export const ArtistContextProvider = ({ children }) => {
   const [artistName, setArtistName] = useState("");
+  const [albumId, setAlbumId] = useState(null);
   const [step, setStep] = useState(0);
   const [songTitle, setSongTitle] = useState("");
   const [firstValueArtistName, setFirstValueArtistName] = useState("");
@@ -14,7 +15,7 @@ export const ArtistContextProvider = ({ children }) => {
   const [officialSongId, setOfficialSongId] = useState("");
   const [karaokeSongId, setKaraokeSongId] = useState("");
   const [mightLikeArtistNames, setMightLikeArtistNames] = useState([]);
-  const [musicGenre, setMusicGenre] = useState("")
+  const [musicGenre, setMusicGenre] = useState("");
   const [artistId, setArtistId] = useState("");
   const musicMatchApiKey = "ea098be9293d63cd8b14eae183a5d84e";
 
@@ -61,7 +62,9 @@ export const ArtistContextProvider = ({ children }) => {
         setMusicGenre,
         musicMatchApiKey,
         setArtistId,
-        artistId
+        artistId,
+        albumId,
+        setAlbumId,
       }}
     >
       {children}

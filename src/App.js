@@ -18,13 +18,13 @@ function App() {
     setMusicGenre,
     musicMatchApiKey,
     setArtistId,
-    artistId
+    artistId,
   } = useContext(ArtistContext);
 
   // youtube api Peter key
   // const apiKeyYoutube = "AIzaSyCwb6wc0KuGSinjA0Ieo7ESJZzKknYpHmc";
-  const apiKeyYoutube = "AIzaSyBpcSCzGebZDcHH-JG4-lIre0V7MMSWWuE";
-  
+  const apiKeyYoutube = "AIzaSyA3I12UDsx9YxEcaTaWwqgVbUFC_cZwKro";
+
   const getOfficialSongId = async () => {
     await axios
       .get(
@@ -107,7 +107,8 @@ function App() {
           console.log("3eme requete axios", res3.data);
           setMusicGenre(
             res3.data.message.body.album_list[0]
-              ? res3.data.message.body.album_list[0].album.primary_genres.music_genre_list[0].music_genre.music_genre_name
+              ? res3.data.message.body.album_list[0].album.primary_genres
+                  .music_genre_list[0].music_genre.music_genre_name
               : ""
           );
         });

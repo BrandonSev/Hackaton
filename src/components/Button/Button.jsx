@@ -1,9 +1,10 @@
 import React from "react";
+import "./Button.css";
 
 function Button({ value, handleClick, className, style, like = null }) {
   return (
     <button
-      className={`btn btn-xl btn-primary btn-sm ${className}`}
+      className={`btn btn-xl btn-sm button-bg ${className}`}
       style={style}
       onClick={handleClick}
     >
@@ -14,7 +15,7 @@ function Button({ value, handleClick, className, style, like = null }) {
             xmlns="http://www.w3.org/2000/svg"
             width="16"
             height="16"
-            fill="currentColor"
+            fill="red"
             class="bi bi-heart-fill"
             viewBox="0 0 16 16"
           >
