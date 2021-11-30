@@ -2,9 +2,10 @@ import React, { useContext, useEffect, useState } from "react";
 import ArtistContext from "../../context/ArtistContext";
 import axios from "axios";
 import Button from "../Button/Button";
+import LogiqueModale from "../Modale/LogiqueModale";
 
 const Step4 = () => {
-  const { artistId, musicMatchApiKey, step, setStep } =
+  const { artistId, musicMatchApiKey, step, setStep, setAlbumId } =
     useContext(ArtistContext);
   const [albums, setAlbums] = useState([]);
 
@@ -29,10 +30,25 @@ const Step4 = () => {
         <Button value="Back" handleClick={() => setStep(step - 2)} />
       </div>
       {albums.map((album, i) => (
-        <figure>
-          <figcaption>
+        <figure className="mt-4">
+          <figcaption
+            className="d-flex align-items-center justify-content-between text-white p-2"
+            style={{
+              padding: "1rem",
+              border: "1Px solid grey",
+              borderRadius: "10px",
+              boxShadow: "10px 10px 5px #acacac80",
+            }}
+          >
             Artist:{album.album.artist_name} Name:{album.album.album_name}{" "}
             Release Date:{album.album.album_release_date}
+            <Button
+              value="See Tracks"
+              handleClick={() => {
+                setAlbumId(album.album.album_id);
+                setStep(step + 1);
+              }}
+            ></Button>
           </figcaption>
         </figure>
       ))}

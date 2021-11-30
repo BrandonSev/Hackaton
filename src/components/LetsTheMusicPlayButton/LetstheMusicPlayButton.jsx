@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import ArtistContext from "../../context/ArtistContext";
+import Button from "../Button/Button";
 
 const LetTheMusicPlayButton = () => {
   const {
@@ -22,13 +23,11 @@ const LetTheMusicPlayButton = () => {
     setStep(step + 1);
   };
   return (
-    <button
-      type="button"
-      onClick={handleClick}
-      className="btn btn-primary btn-lg"
-    >
-      Let's the music play
-    </button>
+    <Button
+      value="Let the music Play"
+      handleClick={handleClick}
+      className={"btn btn-light btn-sm mt-2"}
+    ></Button>
   );
 };
 

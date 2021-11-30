@@ -13,7 +13,7 @@ const LetsReadIt = () => {
   return (
     <div className="mt-4">
       <div className="text-center">
-        <h2 className="text-primary">
+        <h2 className="text-light">
           Let's Sing It{" "}
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -29,8 +29,12 @@ const LetsReadIt = () => {
         </h2>
       </div>
       <div
-        className="border p-4"
-        style={{ maxHeight: "50vh", overflowY: "scroll" }}
+        className="p-4 text-white"
+        style={{
+          maxHeight: "50vh",
+          overflowY: "scroll",
+          border: "1px solid #FFFFFF80",
+        }}
       >
         <div className="text-center">
           <h3>
